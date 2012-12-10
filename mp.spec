@@ -62,3 +62,14 @@ mkdir -p %{buildroot}/%{_bindir}
 %{_docdir}/%{name}-%{basever}
 %{_datadir}/%{name}-%{basever}
 %{_datadir}/locale/
+
+
+%changelog
+* Thu Apr 12 2012 Dmitry Mikhirev <dmikhirev@mandriva.org> 5.2.2-1
++ Revision: 790394
+- update to 5.2.2
+
+* Mon Nov 14 2011 Alexander Khrukin <akhrukin@mandriva.org> 5.2.1-1
++ Revision: 730491
+- imported package mp
+
