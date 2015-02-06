@@ -3,7 +3,7 @@
 
 Name:		mp
 Version:	5.2.2
-Release:	1
+Release:	2
 Summary:	Minimum Profit - Programmer Text Editor	
 Group:		Editors 
 License:	GPL
