@@ -1,15 +1,15 @@
-%bcond_with	kde4
+%bcond_without	kde4
 %define		basever	5
 
 Name:		mp
-Version:	5.2.2
-Release:	2
+Version:	5.2.10
+Release:	1
 Summary:	Minimum Profit - Programmer Text Editor	
 Group:		Editors 
 License:	GPL
 URL:		http://triptico.com
 Source0:	http://triptico.com/download/%{name}-%{version}.tar.gz
-BuildRequires:	ncursesw-devel
+BuildRequires:	pkgconfig(ncursesw)
 BuildRequires:	qt4-devel
 %if %with kde4
 BuildRequires:	kdelibs4-devel
@@ -62,14 +62,3 @@ mkdir -p %{buildroot}/%{_bindir}
 %{_docdir}/%{name}-%{basever}
 %{_datadir}/%{name}-%{basever}
 %{_datadir}/locale/
-
-
-%changelog
-* Thu Apr 12 2012 Dmitry Mikhirev <dmikhirev@mandriva.org> 5.2.2-1
-+ Revision: 790394
-- update to 5.2.2
-
-* Mon Nov 14 2011 Alexander Khrukin <akhrukin@mandriva.org> 5.2.1-1
-+ Revision: 730491
-- imported package mp
-
