@@ -1,8 +1,7 @@
-%bcond_without	kde4
 %define		basever	5
 
 Name:		mp
-Version:	5.2.10
+Version:	5.2.13
 Release:	1
 Summary:	Minimum Profit - Programmer Text Editor	
 Group:		Editors 
@@ -10,10 +9,8 @@ License:	GPL
 URL:		http://triptico.com
 Source0:	http://triptico.com/download/%{name}-%{version}.tar.gz
 BuildRequires:	pkgconfig(ncursesw)
-BuildRequires:	qt4-devel
-%if %with kde4
-BuildRequires:	kdelibs4-devel
-%endif
+BuildRequires:	cmake(ECM)
+BuildRequires:	qt5-devel
 Provides:	minimum-profit = %{EVRD}
 Patch0:		mp-5.2.1-prll.patch
 
@@ -42,13 +39,9 @@ are the following:
 %patch0 -p1
 
 %build
-./config.sh --prefix="%{_prefix}" --without-win32 \
-%if %with kde4
-	--with-kde4 \
-%endif
-	%{nil}
+./config.sh --prefix="%{_prefix}" --without-win32
 
-make MOC=%{qt4bin}/moc
+make MOC=%{_qt5_bindir}/moc
 
 %install
 mkdir -p %{buildroot}/%{_bindir}
