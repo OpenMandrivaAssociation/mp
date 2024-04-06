@@ -1,5 +1,3 @@
-removed_sources:
-  mp-5.2.10.tar.gz: f7fcc501c03568d65f0f6663e462cc77ab5aa5f0
-  mp-5.2.2.tar.gz: 1027adb27a11179c95e9fb7a4ab0d64e228ad792
 sources:
+  5.61.tar.gz: 872b607267a344af86e41421310714b35eda1584
   mp-5.2.13.tar.gz: 17f36d1f94a04d2f382daae8b50e7d3e2fa9c9d0

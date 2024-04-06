@@ -1,19 +1,17 @@
 %define		basever	5
 
 Name:		mp
-Version:	5.2.13
+Version:	5.61
 Release:	1
 Summary:	Minimum Profit - Programmer Text Editor	
 Group:		Editors 
 License:	GPL
 URL:		http://triptico.com
-Source0:	http://triptico.com/download/%{name}-%{version}.tar.gz
+Source0:	https://github.com/ttcdt/mp-5.x/archive/refs/tags/%{version}.tar.gz
 BuildRequires:	pkgconfig(ncursesw)
 BuildRequires:	cmake(ECM)
-BuildRequires:	qt5-devel
+BuildRequires:	pkgconfig(Qt5Widgets)
 Provides:	minimum-profit = %{EVRD}
-Patch0:		mp-5.2.1-prll.patch
-
 
 %description
 
@@ -35,23 +33,30 @@ are the following:
 
 
 %prep
-%setup -q
-%patch0 -p1
+%autosetup -p1 -n mp-5.x-%{version}
 
 %build
-./config.sh --prefix="%{_prefix}" --without-win32
+export CXX=g++
+export CPP=g++
+export CC=gcc
+export CFLAGS="%{optflags} -fpermissive"
+./config.sh --prefix="%{_prefix}" \
+            --without-win32 \
+            --with-qt5 \
+	    --without-qt4 \
+            --without-gtk \
+            --with-curses
 
 make MOC=%{_qt5_bindir}/moc
 
 %install
 mkdir -p %{buildroot}/%{_bindir}
-%makeinstall_std
+%make_install
 
 %files
-%doc COPYING README
+%doc LICENSE README
 %{_bindir}/%{name}-%{basever}
-%{_bindir}/mpsl
-%{_mandir}/man1/%{name}-%{basever}.*
+#{_mandir}/man1/%{name}-%{basever}.*
 %{_docdir}/%{name}-%{basever}
-%{_datadir}/%{name}-%{basever}
-%{_datadir}/locale/
+#{_datadir}/%{name}-%{basever}
+#{_datadir}/locale/
