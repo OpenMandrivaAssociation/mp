@@ -6,7 +6,7 @@ Release:	1
 Summary:	Minimum Profit - Programmer Text Editor	
 Group:		Editors 
 License:	GPL
-URL:		http://triptico.com
+URL:		https://triptico.com
 Source0:	https://github.com/ttcdt/mp-5.x/archive/refs/tags/%{version}.tar.gz
 BuildRequires:	pkgconfig(ncursesw)
 BuildRequires:	cmake(ECM)
