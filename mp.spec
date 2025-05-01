@@ -1,7 +1,7 @@
 %define		basever	5
 
 Name:		mp
-Version:	5.61
+Version:	5.62
 Release:	1
 Summary:	Minimum Profit - Programmer Text Editor	
 Group:		Editors 
